@@ -13,7 +13,7 @@ public class Triangle extends Shape {
 	 */
 	@Override
 	public void draw() {
-		System.out.println("this is a draw method from class Triangle");
+		System.out.println("Drawing a triangle");
 	}
 
 }

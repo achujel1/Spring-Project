@@ -15,10 +15,14 @@ public class Main {
 	 *            the arguments you pass to console
 	 */
 	public static void main(String[] args) {
-		Drawing drawing = new Drawing();
+		Drawing drawingTriangle = new Drawing();
 		Triangle myTriangle = new Triangle();
-		drawing.setShape(myTriangle);
-		drawing.drawShape();
+		drawingTriangle.setShape(myTriangle);
+		drawingTriangle.drawShape();
 
+		Drawing drawingCircle = new Drawing();
+		Circle myCircle = new Circle();
+		drawingCircle.setShape(myCircle);
+		drawingCircle.drawShape();
 	}
 }

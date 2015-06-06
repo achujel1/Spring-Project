@@ -22,6 +22,7 @@ public class Drawing {
 
 	/**
 	 * This is a method which is drawing
+	 * 
 	 */
 	public void drawShape() {
 		this.shape.draw();
