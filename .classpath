@@ -2,5 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-1.7.12/jul-to-slf4j-1.7.12.jar"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-1.7.12/log4j-over-slf4j-1.7.12.jar"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-1.7.12/osgi-over-slf4j-1.7.12.jar"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-1.7.12/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-1.7.12/slf4j-ext-1.7.12.jar"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-1.7.12/slf4j-migrator-1.7.12.jar"/>
+	<classpathentry kind="lib" path="G:/Downloads/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
