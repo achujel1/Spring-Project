@@ -48,7 +48,7 @@ public class Triangle {
 
 	/**
 	 * Constructor with two arguments
-	 * 
+	 *
 	 * @param type
 	 * @param height
 	 */
@@ -59,7 +59,7 @@ public class Triangle {
 
 	/**
 	 * Constructor with one argument
-	 * 
+	 *
 	 * @param type
 	 */
 	public Triangle(String type) {
@@ -68,7 +68,7 @@ public class Triangle {
 
 	/**
 	 * Constructor with one argument
-	 * 
+	 *
 	 * @param height
 	 */
 	public Triangle(int height) {
