@@ -21,7 +21,7 @@ public class DrawingApp {
 				"spring.xml");
 
 		Triangle triangle = (Triangle) context.getBean("triangle");
-		triangle.draw();
+		triangle.drawPoint();
 
 		// Closes the context
 		((ClassPathXmlApplicationContext) context).close();
