@@ -1,5 +1,7 @@
 package org.stuff;
 
+import java.util.List;
+
 /**
  * Triangle class
  * 
@@ -14,6 +16,16 @@ public class Triangle {
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
+
+	private List<Point> points;
+
+	public List<Point> getPoints() {
+		return points;
+	}
+
+	public void setPoints(List<Point> points) {
+		this.points = points;
+	}
 
 	public Point getPointA() {
 		return pointA;
@@ -45,35 +57,35 @@ public class Triangle {
 	public int getHeight() {
 		return height;
 	}
-
-	/**
-	 * Constructor with two arguments
-	 *
-	 * @param type
-	 * @param height
-	 */
-	public Triangle(String type, int height) {
-		this.type = type;
-		this.height = height;
-	}
-
-	/**
-	 * Constructor with one argument
-	 *
-	 * @param type
-	 */
-	public Triangle(String type) {
-		this.type = type;
-	}
-
-	/**
-	 * Constructor with one argument
-	 *
-	 * @param height
-	 */
-	public Triangle(int height) {
-		this.height = height;
-	}
+//
+//	/**
+//	 * Constructor with two arguments
+//	 *
+//	 * @param type
+//	 * @param height
+//	 */
+//	public Triangle(String type, int height) {
+//		this.type = type;
+//		this.height = height;
+//	}
+//
+//	/**
+//	 * Constructor with one argument
+//	 *
+//	 * @param type
+//	 */
+//	public Triangle(String type) {
+//		this.type = type;
+//	}
+//
+//	/**
+//	 * Constructor with one argument
+//	 *
+//	 * @param height
+//	 */
+//	public Triangle(int height) {
+//		this.height = height;
+//	}
 
 	public String getType() {
 		return type;
@@ -100,6 +112,13 @@ public class Triangle {
 		System.out.println("B: (" + pointB.getX() + ", " + pointB.getY() + ")");
 		System.out.println("C: (" + pointC.getX() + ", " + pointC.getY() + ")");
 
+	}
+
+	public void drawPoints() {
+		for (Point point : points) {
+			System.out.println("Point: (" + point.getX() + ", " + point.getY()
+					+ ")");
+		}
 	}
 
 }

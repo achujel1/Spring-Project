@@ -4,36 +4,34 @@
 
 	<!-- just a bean -->
 	<bean id="triangle" class="org.stuff.Triangle" name="triangle-name">
-		<property name="pointA">
-			<!-- working with ref location -->
-			<ref local="zeroPoint" />
+		<property name="points">
+			<list>
+				<ref bean="zeroPoint"></ref>
+				<ref bean="Point2"></ref>
+				<ref bean="Point3"></ref>
+			</list>
 		</property>
 
-		<property name="pointB">
-
-			<!-- example of an inner bean -->
-			<bean id="point2" class="org.stuff.Point">
-				<property name="x" value="-20" />
-				<property name="y" value="0" />
-			</bean>
-
-		</property>
-		<property name="pointC">
-
-			<!-- example of an inner bean -->
-			<bean id="point3" class="org.stuff.Point">
-				<property name="x" value="0" />
-				<property name="y" value="-20" />
-			</bean>
-
-		</property>
+		<!-- <property name="pointA"> working with ref location <ref local="zeroPoint" 
+			/> </property> <property name="pointB"> example of an inner bean <bean id="point2" 
+			class="org.stuff.Point"> <property name="x" value="-20" /> <property name="y" 
+			value="0" /> </bean> </property> <property name="pointC"> example of an inner 
+			bean <bean id="point3" class="org.stuff.Point"> <property name="x" value="0" 
+			/> <property name="y" value="-20" /> </bean> </property> -->
 	</bean>
 
 	<bean id="zeroPoint" class="org.stuff.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
-
+	<bean id="Point2" class="org.stuff.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="Point3" class="org.stuff.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
 	<!-- aliases example -->
 	<alias name="triangle" alias="triangle-alias" />
 
