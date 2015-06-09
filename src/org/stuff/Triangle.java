@@ -91,10 +91,10 @@ public class Triangle {
 		return type;
 	}
 
-	// Commenting a setter to show that constructor with argument is working
-	// public void setType(String type) {
-	// this.type = type;
-	// }
+//	 Commenting a setter to show that constructor with argument is working
+	 public void setType(String type) {
+	 this.type = type;
+	 }
 
 	/**
 	 * Method which is drawing a triangle

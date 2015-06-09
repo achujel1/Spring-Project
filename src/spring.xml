@@ -3,15 +3,18 @@
 <beans>
 
 	<!-- just a bean -->
-	<bean id="triangle" class="org.stuff.Triangle" name="triangle-name">
-		<property name="points">
-			<list>
-				<ref bean="zeroPoint"></ref>
-				<ref bean="Point2"></ref>
-				<ref bean="Point3"></ref>
-			</list>
-		</property>
 
+	<!-- autowiring by name -->
+	 <bean id="triangle" class="org.stuff.Triangle" autowire="byName"> 
+
+	<!-- autowiring by type -->
+	<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byType"> -->
+
+		<!-- autowiring by constructor -->
+		<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byConstructor"> -->
+
+		<!-- <property name="points"> <list> <ref bean="zeroPoint"></ref> <ref 
+			bean="Point2"></ref> <ref bean="Point3"></ref> </list> </property> -->
 		<!-- <property name="pointA"> working with ref location <ref local="zeroPoint" 
 			/> </property> <property name="pointB"> example of an inner bean <bean id="point2" 
 			class="org.stuff.Point"> <property name="x" value="-20" /> <property name="y" 
@@ -20,15 +23,16 @@
 			/> <property name="y" value="-20" /> </bean> </property> -->
 	</bean>
 
-	<bean id="zeroPoint" class="org.stuff.Point">
+	<!-- lower case letter are VERY important in String -->
+	<bean id="pointA" class="org.stuff.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
-	<bean id="Point2" class="org.stuff.Point">
+	<bean id="pointB" class="org.stuff.Point">
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
-	<bean id="Point3" class="org.stuff.Point">
+	<bean id="pointC" class="org.stuff.Point">
 		<property name="x" value="20" />
 		<property name="y" value="0" />
 	</bean>
