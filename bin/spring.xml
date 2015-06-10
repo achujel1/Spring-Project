@@ -5,10 +5,11 @@
 	<!-- just a bean -->
 
 	<!-- autowiring by name -->
-	 <bean id="triangle" class="org.stuff.Triangle" autowire="byName"> 
+	<bean id="triangle" class="org.stuff.Triangle" autowire="byName">
 
-	<!-- autowiring by type -->
-	<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byType"> -->
+
+		<!-- autowiring by type -->
+		<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byType"> -->
 
 		<!-- autowiring by constructor -->
 		<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byConstructor"> -->
