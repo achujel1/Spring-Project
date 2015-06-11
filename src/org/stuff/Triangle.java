@@ -2,13 +2,18 @@ package org.stuff;
 
 import java.util.List;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
 /**
  * Triangle class
  * 
  * @author Adminas
  *
  */
-public class Triangle {
+public class Triangle implements ApplicationContextAware, BeanNameAware {
 
 	/**
 	 * These are just three values of triangle
@@ -16,7 +21,10 @@ public class Triangle {
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
+	// Application context variable
+	private ApplicationContext context = null;
 
+	// List of points
 	private List<Point> points;
 
 	public List<Point> getPoints() {
@@ -57,44 +65,45 @@ public class Triangle {
 	public int getHeight() {
 		return height;
 	}
-//
-//	/**
-//	 * Constructor with two arguments
-//	 *
-//	 * @param type
-//	 * @param height
-//	 */
-//	public Triangle(String type, int height) {
-//		this.type = type;
-//		this.height = height;
-//	}
-//
-//	/**
-//	 * Constructor with one argument
-//	 *
-//	 * @param type
-//	 */
-//	public Triangle(String type) {
-//		this.type = type;
-//	}
-//
-//	/**
-//	 * Constructor with one argument
-//	 *
-//	 * @param height
-//	 */
-//	public Triangle(int height) {
-//		this.height = height;
-//	}
+
+	//
+	// /**
+	// * Constructor with two arguments
+	// *
+	// * @param type
+	// * @param height
+	// */
+	// public Triangle(String type, int height) {
+	// this.type = type;
+	// this.height = height;
+	// }
+	//
+	// /**
+	// * Constructor with one argument
+	// *
+	// * @param type
+	// */
+	// public Triangle(String type) {
+	// this.type = type;
+	// }
+	//
+	// /**
+	// * Constructor with one argument
+	// *
+	// * @param height
+	// */
+	// public Triangle(int height) {
+	// this.height = height;
+	// }
 
 	public String getType() {
 		return type;
 	}
 
-//	 Commenting a setter to show that constructor with argument is working
-	 public void setType(String type) {
-	 this.type = type;
-	 }
+	// Commenting a setter to show that constructor with argument is working
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	/**
 	 * Method which is drawing a triangle
@@ -119,6 +128,25 @@ public class Triangle {
 			System.out.println("Point: (" + point.getX() + ", " + point.getY()
 					+ ")");
 		}
+	}
+
+	// One of the methods which is a MUST to implement
+	/**
+	 * This method is just for testing purposes
+	 */
+	@Override
+	public void setApplicationContext(ApplicationContext arg0)
+			throws BeansException {
+		this.context = context;
+	}
+
+	/**
+	 * This method is just for showing purposes
+	 */
+	@Override
+	public void setBeanName(String beanName) {
+		// Showing bean's name
+		System.out.println("This is the bean name: " + beanName);
 	}
 
 }
