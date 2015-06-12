@@ -7,7 +7,6 @@
 	<!-- autowiring by name -->
 	<bean id="triangle" class="org.stuff.Triangle" autowire="byName">
 
-
 		<!-- autowiring by type -->
 		<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byType"> -->
 
@@ -23,6 +22,45 @@
 			bean <bean id="point3" class="org.stuff.Point"> <property name="x" value="0" 
 			/> <property name="y" value="-20" /> </bean> </property> -->
 	</bean>
+
+	<!-- creating new bean for bean inheritance test -->
+	<bean id="parenttriangle" class="org.stuff.Triangle">
+		<property name="pointA" ref="pointA" />
+	</bean>
+
+	<!-- this bean will inherit from parenttriangle bean -->
+	<bean id="triangle1" class="org.stuff.Triangle" parent="parenttriangle">
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean>
+
+	<!-- this bean will also inherit from parent triangle bean -->
+	<bean id="triangle2" class="org.stuff.Triangle" parent="parenttriangle">
+		<property name="pointB" ref="pointB" />
+	</bean>
+
+	<!-- this bean will be a parent bean with a list -->
+	<bean id="parentlisttriangle" class="org.stuff.Triangle" abstract="true">
+		<property name="points">
+			<list>
+				<ref bean="pointA" />
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- this bean will do bean inheritance but with a list -->
+	<bean id="triangle3" class="org.stuff.Triangle" parent="parentlisttriangle">
+		<property name="points">
+			<!-- merging a list. not sure why marked as an waring (or error) though, 
+				compiles with no problem. will check it later -->
+			<list merge="true">
+				<ref bean="pointB" />
+				<ref bean="pointC" />
+			</list>
+		</property>
+	</bean>
+
 
 	<!-- lower case letter are VERY important in String -->
 	<bean id="pointA" class="org.stuff.Point">
