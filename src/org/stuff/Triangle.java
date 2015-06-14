@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -13,7 +15,8 @@ import org.springframework.context.ApplicationContextAware;
  * @author Adminas
  *
  */
-public class Triangle implements ApplicationContextAware, BeanNameAware {
+public class Triangle implements ApplicationContextAware, BeanNameAware,
+		InitializingBean, DisposableBean {
 
 	/**
 	 * These are just three values of triangle
@@ -149,4 +152,35 @@ public class Triangle implements ApplicationContextAware, BeanNameAware {
 		System.out.println("This is the bean name: " + beanName);
 	}
 
+	/**
+	 * Method which is being called after bean is destroyed
+	 */
+	@Override
+	public void destroy() throws Exception {
+		System.out
+				.println("Destroy method is called from interface DisposableBean");
+	}
+
+	/**
+	 * Method which is being called before bean is
+	 */
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out
+				.println("Init method is called from interface InitializingBean");
+	}
+
+	/**
+	 * Method which is being called after bean is destroyed
+	 */
+	public void cleanUp() {
+		System.out.println("CleanUp method is being called");
+	}
+
+	/**
+	 * Method which is being called before bean is initialized
+	 */
+	public void myInit() {
+		System.out.println("myInit method is being called");
+	}
 }

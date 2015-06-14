@@ -5,22 +5,31 @@
 	<!-- just a bean -->
 
 	<!-- autowiring by name -->
-	<bean id="triangle" class="org.stuff.Triangle" autowire="byName">
+	<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byName"> -->
 
-		<!-- autowiring by type -->
-		<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byType"> -->
 
-		<!-- autowiring by constructor -->
-		<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byConstructor"> -->
+	<!-- autowiring by type -->
+	<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byType"> -->
 
-		<!-- <property name="points"> <list> <ref bean="zeroPoint"></ref> <ref 
-			bean="Point2"></ref> <ref bean="Point3"></ref> </list> </property> -->
-		<!-- <property name="pointA"> working with ref location <ref local="zeroPoint" 
-			/> </property> <property name="pointB"> example of an inner bean <bean id="point2" 
-			class="org.stuff.Point"> <property name="x" value="-20" /> <property name="y" 
-			value="0" /> </bean> </property> <property name="pointC"> example of an inner 
-			bean <bean id="point3" class="org.stuff.Point"> <property name="x" value="0" 
-			/> <property name="y" value="-20" /> </bean> </property> -->
+	<!-- autowiring by constructor -->
+	<!-- <bean id="triangle" class="org.stuff.Triangle" autowire="byConstructor"> -->
+
+	<!-- <property name="points"> <list> <ref bean="zeroPoint"></ref> <ref bean="Point2"></ref> 
+		<ref bean="Point3"></ref> </list> </property> -->
+	<!-- <property name="pointA"> working with ref location <ref local="zeroPoint" 
+		/> </property> <property name="pointB"> example of an inner bean <bean id="point2" 
+		class="org.stuff.Point"> <property name="x" value="-20" /> <property name="y" 
+		value="0" /> </bean> </property> <property name="pointC"> example of an inner 
+		bean <bean id="point3" class="org.stuff.Point"> <property name="x" value="0" 
+		/> <property name="y" value="-20" /> </bean> </property> -->
+
+	<!-- Testing how initialization and destroy methods are working in a lifecycle 
+		of bean -->
+	<bean id="triangleTest" class="org.stuff.Triangle" init-method="myInit"
+		destroy-method="cleanUp">
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
 	</bean>
 
 	<!-- creating new bean for bean inheritance test -->

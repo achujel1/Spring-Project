@@ -5,6 +5,7 @@ package org.stuff;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -20,6 +21,19 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 		// nothing in here
+	}
+
+	/**
+	 * Tested a lifecycle callbacks in Spring
+	 * 
+	 * @throws BeansException
+	 */
+	private static void lifecycleCallbackTest() throws BeansException {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		context.registerShutdownHook();
+		Triangle triangle = (Triangle) context.getBean("triangleTest");
+		triangle.drawPoint();
 	}
 
 	/**
@@ -46,6 +60,7 @@ public class DrawingApp {
 	private static void testedMethods() {
 		testingBeanInheritance();
 		workingWithBeanListInheritance();
+		lifecycleCallbackTest();
 	}
 
 	/**
