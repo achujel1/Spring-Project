@@ -24,6 +24,17 @@ public class DrawingApp {
 	}
 
 	/**
+	 * @throws BeansException
+	 */
+	private static void testingBeanPostProcessor() throws BeansException {
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		Triangle triangle = (Triangle) context
+				.getBean("triangleBeanPostProcessor");
+		triangle.drawPoints();
+	}
+
+	/**
 	 * Tested a lifecycle callbacks in Spring
 	 * 
 	 * @throws BeansException
@@ -61,6 +72,7 @@ public class DrawingApp {
 		testingBeanInheritance();
 		workingWithBeanListInheritance();
 		lifecycleCallbackTest();
+		testingBeanPostProcessor();
 	}
 
 	/**

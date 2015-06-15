@@ -25,6 +25,12 @@
 
 	<!-- Testing how initialization and destroy methods are working in a lifecycle 
 		of bean -->
+	<bean id="triangleBeanPostProcessor" class="org.stuff.Triangle">
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	</bean>
+
 	<bean id="triangleTest" class="org.stuff.Triangle" init-method="myInit"
 		destroy-method="cleanUp">
 		<property name="pointA" ref="pointA"></property>
@@ -86,5 +92,7 @@
 	</bean>
 	<!-- aliases example -->
 	<alias name="triangle" alias="triangle-alias" />
+
+	<bean class="org.stuff.DisplayNameBeanPostProcessor" />
 
 </beans>
