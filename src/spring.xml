@@ -31,56 +31,57 @@
 		<property name="pointC" ref="pointC"></property>
 	</bean>
 
-	<bean id="triangleTest" class="org.stuff.Triangle" init-method="myInit"
+	<!-- <bean id="triangleTest" class="org.stuff.Triangle" init-method="myInit"
 		destroy-method="cleanUp">
 		<property name="pointA" ref="pointA"></property>
 		<property name="pointB" ref="pointB"></property>
 		<property name="pointC" ref="pointC"></property>
-	</bean>
+	</bean>  -->
 
 	<!-- creating new bean for bean inheritance test -->
-	<bean id="parenttriangle" class="org.stuff.Triangle">
+	<!-- <bean id="parenttriangle" class="org.stuff.Triangle">
 		<property name="pointA" ref="pointA" />
-	</bean>
+	</bean> -->
 
 	<!-- this bean will inherit from parenttriangle bean -->
-	<bean id="triangle1" class="org.stuff.Triangle" parent="parenttriangle">
+	<!-- <bean id="triangle1" class="org.stuff.Triangle" parent="parenttriangle">
 		<property name="pointB" ref="pointB" />
 		<property name="pointC" ref="pointC" />
-	</bean>
+	</bean> -->
 
 	<!-- this bean will also inherit from parent triangle bean -->
-	<bean id="triangle2" class="org.stuff.Triangle" parent="parenttriangle">
+	<!-- <bean id="triangle2" class="org.stuff.Triangle" parent="parenttriangle">
 		<property name="pointB" ref="pointB" />
-	</bean>
+	</bean> -->
 
 	<!-- this bean will be a parent bean with a list -->
-	<bean id="parentlisttriangle" class="org.stuff.Triangle" abstract="true">
+	<!-- <bean id="parentlisttriangle" class="org.stuff.Triangle" abstract="true">
 		<property name="points">
 			<list>
 				<ref bean="pointA" />
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 
 	<!-- this bean will do bean inheritance but with a list -->
-	<bean id="triangle3" class="org.stuff.Triangle" parent="parentlisttriangle">
+	<!-- <bean id="triangle3" class="org.stuff.Triangle" parent="parentlisttriangle">
 		<property name="points">
-			<!-- merging a list. not sure why marked as an waring (or error) though, 
-				compiles with no problem. will check it later -->
+			merging a list. not sure why marked as an waring (or error) though, 
+				compiles with no problem. will check it later
 			<list merge="true">
 				<ref bean="pointB" />
 				<ref bean="pointC" />
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
 
 	<!-- lower case letter are VERY important in String -->
 	<bean id="pointA" class="org.stuff.Point">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
+		<!-- We are setting values from .properties file -->
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
 	</bean>
 	<bean id="pointB" class="org.stuff.Point">
 		<property name="x" value="-20" />
@@ -91,8 +92,18 @@
 		<property name="y" value="0" />
 	</bean>
 	<!-- aliases example -->
-	<alias name="triangle" alias="triangle-alias" />
+	<!-- <alias name="triangle" alias="triangle-alias" /> -->
 
-	<bean class="org.stuff.DisplayNameBeanPostProcessor" />
+	<!-- Using bean factory processor -->
+	<!-- <bean class="org.stuff.MyBeanFactoryPP" /> -->
+
+	<!-- Adding pointsconfig.properties file -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties"></property>
+	</bean>
+
+	<!-- Using bean post processor -->
+	<!-- <bean class="org.stuff.DisplayNameBeanPostProcessor" /> -->
 
 </beans>

@@ -24,6 +24,21 @@ public class DrawingApp {
 	}
 
 	/**
+	 * Tested how Bean Factory Processor works
+	 * 
+	 * @throws BeansException
+	 */
+	private static void testingBeanFactoryProcessor() throws BeansException {
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		Triangle triangle = (Triangle) context
+				.getBean("triangleBeanPostProcessor");
+		triangle.drawPoint();
+	}
+
+	/**
+	 * Just tested how Bean Post Processor works
+	 * 
 	 * @throws BeansException
 	 */
 	private static void testingBeanPostProcessor() throws BeansException {
@@ -73,6 +88,7 @@ public class DrawingApp {
 		workingWithBeanListInheritance();
 		lifecycleCallbackTest();
 		testingBeanPostProcessor();
+		testingBeanFactoryProcessor();
 	}
 
 	/**
