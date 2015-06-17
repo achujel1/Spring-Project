@@ -16,7 +16,7 @@ import org.springframework.context.ApplicationContextAware;
  *
  */
 public class Triangle implements ApplicationContextAware, BeanNameAware,
-		InitializingBean, DisposableBean {
+		InitializingBean, DisposableBean, Shape {
 
 	/**
 	 * These are just three values of triangle
@@ -120,6 +120,7 @@ public class Triangle implements ApplicationContextAware, BeanNameAware,
 	 * This works only if there are no constructors. Why?
 	 */
 	public void drawPoint() {
+		System.out.println("Drawing triangle:");
 		System.out.println("A: (" + pointA.getX() + ", " + pointA.getY() + ")");
 		System.out.println("B: (" + pointB.getX() + ", " + pointB.getY() + ")");
 		System.out.println("C: (" + pointC.getX() + ", " + pointC.getY() + ")");

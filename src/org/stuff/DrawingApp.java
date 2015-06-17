@@ -21,6 +21,14 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 		// nothing in here
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		// Testing triangle interface
+		Shape shapeTriangle = (Shape) context.getBean("triangleInterface");
+		shapeTriangle.drawPoint();
+		// Testing circle interface
+		Shape shapeCircle = (Shape) context.getBean("circle");
+		shapeCircle.drawPoint();
 	}
 
 	/**

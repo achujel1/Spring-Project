@@ -25,63 +25,55 @@
 
 	<!-- Testing how initialization and destroy methods are working in a lifecycle 
 		of bean -->
-	<bean id="triangleBeanPostProcessor" class="org.stuff.Triangle">
+	<!-- <bean id="triangleBeanPostProcessor" class="org.stuff.Triangle"> <property 
+		name="pointA" ref="pointA"></property> <property name="pointB" ref="pointB"></property> 
+		<property name="pointC" ref="pointC"></property> </bean> -->
+
+	<!-- Testing how interfaces in Spring are working -->
+	<bean id="triangleInterface" class="org.stuff.Triangle">
 		<property name="pointA" ref="pointA"></property>
 		<property name="pointB" ref="pointB"></property>
 		<property name="pointC" ref="pointC"></property>
 	</bean>
 
-	<!-- <bean id="triangleTest" class="org.stuff.Triangle" init-method="myInit"
-		destroy-method="cleanUp">
-		<property name="pointA" ref="pointA"></property>
-		<property name="pointB" ref="pointB"></property>
-		<property name="pointC" ref="pointC"></property>
-	</bean>  -->
+	<!-- <bean id="triangleTest" class="org.stuff.Triangle" init-method="myInit" 
+		destroy-method="cleanUp"> <property name="pointA" ref="pointA"></property> 
+		<property name="pointB" ref="pointB"></property> <property name="pointC" 
+		ref="pointC"></property> </bean> -->
 
 	<!-- creating new bean for bean inheritance test -->
-	<!-- <bean id="parenttriangle" class="org.stuff.Triangle">
-		<property name="pointA" ref="pointA" />
-	</bean> -->
+	<!-- <bean id="parenttriangle" class="org.stuff.Triangle"> <property name="pointA" 
+		ref="pointA" /> </bean> -->
 
 	<!-- this bean will inherit from parenttriangle bean -->
-	<!-- <bean id="triangle1" class="org.stuff.Triangle" parent="parenttriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
-	</bean> -->
+	<!-- <bean id="triangle1" class="org.stuff.Triangle" parent="parenttriangle"> 
+		<property name="pointB" ref="pointB" /> <property name="pointC" ref="pointC" 
+		/> </bean> -->
 
 	<!-- this bean will also inherit from parent triangle bean -->
-	<!-- <bean id="triangle2" class="org.stuff.Triangle" parent="parenttriangle">
-		<property name="pointB" ref="pointB" />
-	</bean> -->
+	<!-- <bean id="triangle2" class="org.stuff.Triangle" parent="parenttriangle"> 
+		<property name="pointB" ref="pointB" /> </bean> -->
 
 	<!-- this bean will be a parent bean with a list -->
-	<!-- <bean id="parentlisttriangle" class="org.stuff.Triangle" abstract="true">
-		<property name="points">
-			<list>
-				<ref bean="pointA" />
-			</list>
-		</property>
-	</bean> -->
+	<!-- <bean id="parentlisttriangle" class="org.stuff.Triangle" abstract="true"> 
+		<property name="points"> <list> <ref bean="pointA" /> </list> </property> 
+		</bean> -->
 
 
 	<!-- this bean will do bean inheritance but with a list -->
-	<!-- <bean id="triangle3" class="org.stuff.Triangle" parent="parentlisttriangle">
-		<property name="points">
-			merging a list. not sure why marked as an waring (or error) though, 
-				compiles with no problem. will check it later
-			<list merge="true">
-				<ref bean="pointB" />
-				<ref bean="pointC" />
-			</list>
-		</property>
-	</bean> -->
+	<!-- <bean id="triangle3" class="org.stuff.Triangle" parent="parentlisttriangle"> 
+		<property name="points"> merging a list. not sure why marked as an waring 
+		(or error) though, compiles with no problem. will check it later <list merge="true"> 
+		<ref bean="pointB" /> <ref bean="pointC" /> </list> </property> </bean> -->
 
 
 	<!-- lower case letter are VERY important in String -->
 	<bean id="pointA" class="org.stuff.Point">
 		<!-- We are setting values from .properties file -->
-		<property name="x" value="${pointA.pointX}" />
-		<property name="y" value="${pointA.pointY}" />
+		<!-- <property name="x" value="${pointA.pointX}" /> -->
+		<!-- <property name="y" value="${pointA.pointY}" /> -->
+		<property name="x" value="0" />
+		<property name="y" value="0" />
 	</bean>
 	<bean id="pointB" class="org.stuff.Point">
 		<property name="x" value="-20" />
@@ -101,6 +93,11 @@
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="pointsconfig.properties"></property>
+	</bean>
+
+	<!-- Writing another class to test interfaces in Spring -->
+	<bean id="circle" class="org.stuff.Circle">
+		<property name="center" ref="pointA"></property>
 	</bean>
 
 	<!-- Using bean post processor -->
