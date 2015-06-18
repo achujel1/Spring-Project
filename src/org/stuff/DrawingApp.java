@@ -21,6 +21,26 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 		// nothing in here
+	}
+
+	/**
+	 * Testing how required annotations are working in spring
+	 * 
+	 * @throws BeansException
+	 */
+	private static void testingRequiredAnnotation() throws BeansException {
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		Shape shapeCircle = (Shape) context.getBean("circle");
+		shapeCircle.drawPoint();
+	}
+
+	/**
+	 * Testing how interfaces are working in spring
+	 * 
+	 * @throws BeansException
+	 */
+	private static void testingInterfacesInSpring() throws BeansException {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring.xml");
 		// Testing triangle interface
@@ -97,6 +117,7 @@ public class DrawingApp {
 		lifecycleCallbackTest();
 		testingBeanPostProcessor();
 		testingBeanFactoryProcessor();
+		testingRequiredAnnotation();
 	}
 
 	/**

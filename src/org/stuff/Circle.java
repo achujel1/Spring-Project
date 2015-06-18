@@ -1,5 +1,7 @@
 package org.stuff;
 
+import org.springframework.beans.factory.annotation.Required;
+
 /**
  * Circle class
  * 
@@ -24,6 +26,7 @@ public class Circle implements Shape {
 		return center;
 	}
 
+	@Required
 	public void setCenter(Point center) {
 		this.center = center;
 	}
