@@ -24,15 +24,24 @@ public class DrawingApp {
 	}
 
 	/**
+	 * Tested how auto wire annotation works
+	 * 
+	 * @throws BeansException
+	 */
+	private static void workingWIthRequiredAnnotation() throws BeansException {
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		Shape shapeCircle = (Shape) context.getBean("circle");
+		shapeCircle.drawPoint();
+	}
+
+	/**
 	 * Testing how required annotations are working in spring
 	 * 
 	 * @throws BeansException
 	 */
 	private static void testingRequiredAnnotation() throws BeansException {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				"spring.xml");
-		Shape shapeCircle = (Shape) context.getBean("circle");
-		shapeCircle.drawPoint();
+		workingWIthRequiredAnnotation();
 	}
 
 	/**
@@ -118,6 +127,7 @@ public class DrawingApp {
 		testingBeanPostProcessor();
 		testingBeanFactoryProcessor();
 		testingRequiredAnnotation();
+		workingWIthRequiredAnnotation();
 	}
 
 	/**

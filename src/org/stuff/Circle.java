@@ -1,6 +1,7 @@
 package org.stuff;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Circle class
@@ -26,7 +27,10 @@ public class Circle implements Shape {
 		return center;
 	}
 
-	@Required
+	// @Required
+	// Instead of using required, I'm going to use auto wire
+	@Autowired
+	@Qualifier("circleRelated")
 	public void setCenter(Point center) {
 		this.center = center;
 	}
