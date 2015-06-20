@@ -110,17 +110,21 @@
 
 	</bean>
 
+	<!-- New class to test how resource annotation works -->
+	<bean id="resourceCircle" class="org.stuff.Circle">
+
+	</bean>
+
 	<!-- Testing required annotations in Spring -->
-	<!-- <bean
-		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" /> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" 
+		/> -->
 
 	<!-- Testing auto wire annotations -->
-	<!-- <bean
-		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean> -->
 
 	<!-- You can also use this if you don't want to write all of the postprocessors -->
-	   <context:annotation-config/>
-	
+	<context:annotation-config />
+
 
 	<!-- Using bean post processor -->
 	<!-- <bean class="org.stuff.DisplayNameBeanPostProcessor" /> -->

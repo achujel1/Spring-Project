@@ -24,6 +24,24 @@ public class DrawingApp {
 	}
 
 	/**
+	 * Testing how JSR annotations work in Spring
+	 * 
+	 * @throws BeansException
+	 */
+	private static void testingJsrAnnotations() throws BeansException {
+		// Testing resource and other annotations
+
+		// Here I'm using AbstractApplicationContext (not ApplicationContext) so
+		// I could call registerShutDownHook() method to destroy the beans
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		// Calling a method which is going to destroy the beans
+		context.registerShutdownHook();
+		Shape shapeCircle = (Shape) context.getBean("resourceCircle");
+		shapeCircle.drawPoint();
+	}
+
+	/**
 	 * Tested how auto wire annotation works
 	 * 
 	 * @throws BeansException
@@ -128,6 +146,7 @@ public class DrawingApp {
 		testingBeanFactoryProcessor();
 		testingRequiredAnnotation();
 		workingWIthRequiredAnnotation();
+		testingJsrAnnotations();
 	}
 
 	/**

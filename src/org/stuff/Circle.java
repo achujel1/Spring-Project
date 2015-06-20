@@ -1,7 +1,8 @@
 package org.stuff;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
 
 /**
  * Circle class
@@ -29,10 +30,28 @@ public class Circle implements Shape {
 
 	// @Required
 	// Instead of using required, I'm going to use auto wire
-	@Autowired
-	@Qualifier("circleRelated")
+	// @Autowired
+	// @Qualifier("circleRelated")
+
+	// Now I'm testing another annotation which is Resource
+	@Resource(name = "pointA")
 	public void setCenter(Point center) {
 		this.center = center;
 	}
 
+	/**
+	 * This is a method which is being called after the initialization of a bean
+	 */
+	@PostConstruct
+	public void initialieCircle() {
+		System.out.println("PostConstruct: Initialize circle");
+	}
+
+	/**
+	 * This is a method which is being called before destroying a bean
+	 */
+	@PreDestroy
+	public void destroyCircle() {
+		System.out.println("PreDestroy: Destroy circle");
+	}
 }
