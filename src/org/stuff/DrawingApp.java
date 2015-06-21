@@ -21,6 +21,21 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 		// nothing in here
+
+	}
+
+	/**
+	 * @throws BeansException
+	 */
+	private static void testingComponentAnnotation() throws BeansException {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		// context.registerShutdownHook();
+
+		// Using Component annotation which is the same as the class we want to
+		// wire
+		Shape shapeCircle = (Shape) context.getBean("circle");
+		shapeCircle.drawPoint();
 	}
 
 	/**
@@ -147,6 +162,7 @@ public class DrawingApp {
 		testingRequiredAnnotation();
 		workingWIthRequiredAnnotation();
 		testingJsrAnnotations();
+		testingComponentAnnotation();
 	}
 
 	/**

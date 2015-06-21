@@ -125,6 +125,8 @@
 	<!-- You can also use this if you don't want to write all of the postprocessors -->
 	<context:annotation-config />
 
+	<!-- Testing component annotations in Spring -->
+	<context:component-scan base-package="org.stuff"></context:component-scan>
 
 	<!-- Using bean post processor -->
 	<!-- <bean class="org.stuff.DisplayNameBeanPostProcessor" /> -->
