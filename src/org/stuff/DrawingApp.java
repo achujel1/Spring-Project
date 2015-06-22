@@ -21,6 +21,12 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 		// nothing in here
+	}
+
+	/**
+	 * @throws BeansException
+	 */
+	private static void testingMessageSource() throws BeansException {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
 				"spring.xml");
 		Shape shapeCircle = (Shape) context.getBean("circle");
@@ -28,17 +34,12 @@ public class DrawingApp {
 	}
 
 	/**
+	 * Testing message source to get text from property files
+	 * 
 	 * @throws BeansException
 	 */
 	private static void testingComponentAnnotation() throws BeansException {
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
-				"spring.xml");
-		// context.registerShutdownHook();
-
-		// Using Component annotation which is the same as the class we want to
-		// wire
-		Shape shapeCircle = (Shape) context.getBean("circle");
-		shapeCircle.drawPoint();
+		testingMessageSource();
 	}
 
 	/**
@@ -166,6 +167,7 @@ public class DrawingApp {
 		workingWIthRequiredAnnotation();
 		testingJsrAnnotations();
 		testingComponentAnnotation();
+		testingMessageSource();
 	}
 
 	/**
