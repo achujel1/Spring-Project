@@ -21,7 +21,10 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 		// nothing in here
-
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext(
+				"spring.xml");
+		Shape shapeCircle = (Shape) context.getBean("circle");
+		shapeCircle.drawPoint();
 	}
 
 	/**
