@@ -5,6 +5,8 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
@@ -16,9 +18,11 @@ import org.springframework.stereotype.Component;
  */
 // Testing coponent annotation in Spring
 @Component
-public class Circle implements Shape {
+public class Circle implements Shape, ApplicationEventPublisherAware {
 
 	private Point center;
+	// Object to work with event handling
+	private ApplicationEventPublisher publisher;
 
 	// Creating and object to get the text from properties file
 	@Autowired
@@ -48,6 +52,8 @@ public class Circle implements Shape {
 		System.out.println(messageSource.getMessage("drawing.point",
 				new Object[] { center.getX(), center.getY() },
 				"Drawing random point", null));
+		DrawEvent drawEvent = new DrawEvent(this);
+		publisher.publishEvent(drawEvent);
 	}
 
 	public Point getCenter() {
@@ -80,4 +86,13 @@ public class Circle implements Shape {
 	public void destroyCircle() {
 		System.out.println("PreDestroy: Destroy circle");
 	}
+
+	/**
+	 * Method which is setting the publisher
+	 */
+	@Override
+	public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
+		this.publisher = publisher;
+	}
+
 }
