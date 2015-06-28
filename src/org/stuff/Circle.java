@@ -1,5 +1,3 @@
-package org.stuff;
-
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
@@ -16,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @author Adminas
  *
  */
-// Testing coponent annotation in Spring
+// Testing component annotation in Spring
 @Component
 public class Circle implements Shape, ApplicationEventPublisherAware {
 
